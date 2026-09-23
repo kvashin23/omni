@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Omni Coffee — прототип сайта</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="wrap">
+    <div class="top-bar-links">
+      <a href="tel:+78612229435">+7 861 222-94-35</a>
+      <a href="#/contacts">Краснодар, ул. Красных Партизан, 2/1</a>
+    </div>
+    <div class="top-bar-links">
+      <a href="#/wholesale">Оптовым клиентам</a>
+      <a href="#/buyers-info">Покупателям</a>
+      <a href="#/careers">Вакансии</a>
+    </div>
+  </div>
+</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="head-row">
+    <a class="logo" href="#/">OMNI<em>coffee roasters</em></a>
+
+    <nav class="main-nav" id="mainNav">
+      <div class="nav-item">
+        <button class="nav-link" type="button">Каталог</button>
+        <div class="mega" id="catalogMega"></div>
+      </div>
+      <div class="nav-item"><a href="#/about">О компании</a></div>
+      <div class="nav-item"><a href="#/production">Производство</a></div>
+      <div class="nav-item"><a href="#/news">Блог</a></div>
+      <div class="nav-item"><a href="#/wholesale">Опт</a></div>
+      <div class="nav-item"><a href="#/contacts">Контакты</a></div>
+    </nav>
+
+    <div class="head-actions">
+      <button class="hd-icon" id="searchOpenBtn" aria-label="Поиск"></button>
+      <a class="hd-icon" href="#/account/favorites" id="favIcon" aria-label="Избранное"></a>
+      <a class="hd-icon" href="#/cart" id="cartIcon" aria-label="Корзина"></a>
+      <a class="hd-icon" href="#/account" id="accountIcon" aria-label="Личный кабинет"></a>
+    </div>
+    <button class="burger" id="burgerBtn" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-drawer" id="mobileDrawer">
+  <div class="drawer-top"><span class="logo" style="font-size:1.3rem;">OMNI</span><button class="hd-icon" id="drawerCloseBtn" aria-label="Закрыть"></button></div>
+  <button class="hd-icon" id="drawerSearchBtn" style="width:100%;border-radius:2px;justify-content:flex-start;gap:10px;padding:12px 14px;margin-bottom:6px;"><span id="drawerSearchIcon"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;">Поиск по сайту</span></button>
+  <div class="md-group"><span>Каталог</span>
+    <div class="md-sub" id="drawerCatalog"></div>
+  </div>
+  <a href="#/about">О компании</a>
+  <a href="#/production">Производство</a>
+  <a href="#/news">Блог</a>
+  <a href="#/careers">Вакансии</a>
+  <a href="#/wholesale">Оптовым клиентам</a>
+  <a href="#/buyers-info">Покупателям</a>
+  <a href="#/contacts">Контакты</a>
+  <a href="#/cart">Корзина <span id="drawerCartCount"></span></a>
+  <a href="#/account/favorites">Избранное <span id="drawerFavCount"></span></a>
+  <a href="#/account">Личный кабинет</a>
+</div>
+
+<div class="search-overlay" id="searchOverlay">
+  <button class="hd-icon search-close" id="searchCloseBtn" aria-label="Закрыть"></button>
+  <div class="search-box">
+    <form id="searchForm">
+      <input type="text" id="searchInput" placeholder="Что вы ищете?" autocomplete="off">
+      <button type="submit" class="icon-btn" aria-label="Найти"></button>
+    </form>
+    <div class="search-hint">Например: <a href="#" data-search-example="Кения">Кения</a>, <a href="#" data-search-example="эспрессо">эспрессо</a>, <a href="#" data-search-example="чемпионат">чемпионат</a></div>
+  </div>
+</div>
+
+<main id="app"></main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">OMNI coffee</div>
+        <p>Крупнейший обжарщик кофе на Юге России. Производство, обучение, оборудование — с 1994 года.</p>
+        <div class="foot-social">
+          <a class="btn-icon" href="#" aria-label="Instagram" id="footInsta"></a>
+          <a class="btn-icon" href="#" aria-label="Telegram" id="footTg"></a>
+        </div>
+      </div>
+      <div class="foot-col"><h4>Каталог</h4><ul id="footCatalog"></ul></div>
+      <div class="foot-col"><h4>Компания</h4><ul>
+        <li><a href="#/about">О нас</a></li>
+        <li><a href="#/production">Производство</a></li>
+        <li><a href="#/news">Блог</a></li>
+        <li><a href="#/careers">Вакансии</a></li>
+        <li><a href="#/wholesale">Оптовым клиентам</a></li>
+      </ul></div>
+      <div class="foot-col"><h4>Покупателям</h4><ul>
+        <li><a href="#/page/payment-delivery">Оплата и доставка</a></li>
+        <li><a href="#/page/returns">Возврат и обмен</a></li>
+        <li><a href="#/page/offer">Публичная оферта</a></li>
+        <li><a href="#/page/privacy">Политика конфиденциальности</a></li>
+        <li><a href="#/page/requisites">Реквизиты</a></li>
+      </ul></div>
+      <div class="foot-col"><h4>Контакты</h4><ul>
+        <li><a href="tel:+78612229435">+7 861 222-94-35</a></li>
+        <li><a href="mailto:brand@omnicoffee.ru">brand@omnicoffee.ru</a></li>
+        <li><a href="#/contacts">Краснодар, ул. Красных Партизан, 2/1</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 1994–2026 ООО «Кофе ОМНИ»</span>
+      <span>Прототип нового сайта</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast-stack" id="toastStack"></div>
+<div class="modal-backdrop" id="modalBackdrop"><div class="modal-card" id="modalCard"></div></div>
+
+<script src="data.js"></script>
+<script src="components.js"></script>
+<script src="pages.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
