@@ -139,8 +139,15 @@
      --------------------------------------------------------------------- */
   function initHeaderChrome(){
     var megaHtml = D.CATEGORIES.map(function(c){
-      return '<a href="#/catalog/'+c.slug+'"><strong>'+c.title+'</strong><span>'+c.desc+'</span></a>';
-    }).join('') + '<a href="#/catalog"><strong>Весь каталог →</strong></a>';
+      var prods = D.PRODUCTS.filter(function(p){ return p.category===c.slug; }).slice(0,5);
+      return '<div class="mega-cat">'+
+        '<a class="mega-cat-link" href="#/catalog/'+c.slug+'"><span>'+c.title+'</span>'+ICONS.arrow+'</a>'+
+        '<div class="mega-sub">'+
+          prods.map(function(p){ return '<a href="#/product/'+p.slug+'">'+p.region+' '+p.lot+'</a>'; }).join('')+
+          '<a class="mega-sub-all" href="#/catalog/'+c.slug+'">Все товары категории '+ICONS.arrow+'</a>'+
+        '</div>'+
+      '</div>';
+    }).join('') + '<a class="mega-all-link" href="#/catalog">Весь каталог '+ICONS.arrow+'</a>';
     document.getElementById('catalogMega').innerHTML = megaHtml;
     document.getElementById('drawerCatalog').innerHTML = D.CATEGORIES.map(function(c){
       return '<a href="#/catalog/'+c.slug+'">'+c.short+'</a>';
@@ -416,6 +423,20 @@
         }
         toastMsg('Спасибо за отзыв!','Он появится на странице товара');
         route({ preserveScroll:true });
+        break;
+      }
+      case 'open-brew-guide': {
+        var methodKey = act.getAttribute('data-method');
+        var method = D.BREW_METHODS.filter(function(m){ return m.key===methodKey; })[0];
+        if(method){
+          showModal(
+            '<button class="modal-close btn-icon" data-action="close-modal" aria-label="Закрыть">'+ICONS.close+'</button>'+
+            '<div class="ico-ok" style="background:var(--stone);color:var(--flame);">'+UI.ICONS[method.icon]+'</div>'+
+            '<h3>'+method.title+'</h3>'+
+            '<p>'+method.text+'</p>'+
+            '<div class="m-actions"><button class="btn btn-line" data-action="close-modal">Понятно</button></div>'
+          );
+        }
         break;
       }
       case 'home-tab': {

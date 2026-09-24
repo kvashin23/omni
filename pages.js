@@ -76,7 +76,7 @@ window.OMNI_PAGES = (function(){
         '<div class="hero-slide" data-i="1"><div class="field"></div>'+
           '<div class="hero-inner">'+
             '<span class="eyebrow">Specialty · Q80+</span>'+
-            '<h1>#ЯБариста — кофе ручной работы</h1>'+
+            '<h1>#ЯБариста<br>кофе ручной работы</h1>'+
             '<p class="sub">Премиальные лоты с оценкой не ниже 80 баллов по шкале Q. Профиль обжарки на ростере Giesen подбирается вручную под метод заваривания.</p>'+
             '<div class="hero-cta">'+
               '<a class="btn btn-flame" href="#/catalog/specialty">Каталог спешиалти '+ICONS.arrow+'</a>'+
@@ -109,6 +109,8 @@ window.OMNI_PAGES = (function(){
       '</section>'+
 
       '<div class="ticker"><div class="ticker-track">'+
+        '<span>Гватемала</span><span>Кения</span><span>Эфиопия</span><span>Колумбия</span><span>Индонезия</span><span>Бразилия</span>'+
+        '<span>Гватемала</span><span>Кения</span><span>Эфиопия</span><span>Колумбия</span><span>Индонезия</span><span>Бразилия</span>'+
         '<span>Гватемала</span><span>Кения</span><span>Эфиопия</span><span>Колумбия</span><span>Индонезия</span><span>Бразилия</span>'+
         '<span>Гватемала</span><span>Кения</span><span>Эфиопия</span><span>Колумбия</span><span>Индонезия</span><span>Бразилия</span>'+
       '</div></div>'+
@@ -155,7 +157,7 @@ window.OMNI_PAGES = (function(){
 
       '<section class="section" id="catalog-teaser">'+
         '<div class="wrap">'+
-          '<div class="section-head reveal"><div><span class="eyebrow">Каталог</span><h2>Кофе на любой профиль и метод</h2></div>'+
+          '<div class="section-head reveal"><div><span class="eyebrow">Каталог</span><h2>Кофе на любой<br>профиль и метод</h2></div>'+
           '<p class="lead">От сортовых спешиалти-лотов до купажей для эспрессо-бара — обжариваем под задачу.</p></div>'+
           '<div class="tabs" role="tablist">'+
             '<button class="tab-btn is-active" data-action="home-tab" data-tab="specialty">Спешиалти #ЯБариста</button>'+
@@ -178,7 +180,7 @@ window.OMNI_PAGES = (function(){
 
       '<section class="section on-dark" id="roasting-teaser">'+
         '<div class="wrap">'+
-          '<div class="section-head reveal"><div><span class="eyebrow">Производство</span><h2>От зелёного зерна до чашки</h2></div>'+
+          '<div class="section-head reveal"><div><span class="eyebrow">Производство</span><h2>От зелёного зерна<br>до чашки</h2></div>'+
           '<p class="lead">Собственный ростер Giesen и каппинг каждой партии — на мощностях до 9 тонн обжаренного кофе в сутки.</p></div>'+
           '<div class="process-row reveal">'+
             step('01','Отбор зерна','Прямые поставки зелёного кофе, входной контроль, лоты Q80+.')+
@@ -214,7 +216,7 @@ window.OMNI_PAGES = (function(){
 
       '<section class="section" id="news-teaser">'+
         '<div class="wrap">'+
-          '<div class="section-head reveal"><div><span class="eyebrow">Блог и новости</span><h2>Что происходит в мире ОМНИ</h2></div>'+
+          '<div class="section-head reveal"><div><span class="eyebrow">'+ICONS.doc+'Блог и новости</span><h2>Что происходит в мире ОМНИ</h2></div>'+
           '<a class="btn btn-line" href="#/news">Все материалы блога '+ICONS.arrow+'</a></div>'+
           '<div class="news-grid">'+news.map(function(n){ return UI.newsCard(n); }).join('')+'</div>'+
         '</div>'+
@@ -391,7 +393,7 @@ window.OMNI_PAGES = (function(){
           '</div>'+
           '<div>'+
             '<div class="pd-sku eyebrow">SKU '+p.sku+' · '+cat.title+'</div>'+
-            '<h1 class="pd-title">'+p.region+' <br>'+p.lot+'</h1>'+
+            '<h1 class="pd-title">'+p.region+' '+p.lot+'</h1>'+
             '<div class="pd-meta">'+UI.starRow(p.rating,p.reviews)+UI.badgesHtml(p.badges,p.inStock)+'</div>'+
             '<div class="pd-price"><span class="amount" id="pdPrice">'+fmtPrice(p.price250)+'</span><span class="weight mono">за 250&nbsp;г</span></div>'+
             '<div class="pd-weight">'+
@@ -438,13 +440,23 @@ window.OMNI_PAGES = (function(){
         '</div>'+
       '</div></section>'+
 
+      '<section class="section-sm"><div class="wrap">'+
+        '<div class="section-head"><div><h2>Способы приготовления</h2></div></div>'+
+        '<div class="brew-grid">'+D.BREW_METHODS.map(function(m){
+          return '<div class="brew-tile"><div class="ico">'+ICONS[m.icon]+'</div><div><h4>'+m.title+'</h4>'+
+            '<button type="button" class="link-btn" data-action="open-brew-guide" data-method="'+m.key+'">Открыть руководство '+ICONS.arrow+'</button>'+
+          '</div></div>';
+        }).join('')+'</div>'+
+        '<div class="storage-note"><h4>'+ICONS.box+'Способы хранения</h4><p>'+D.STORAGE_TIPS+'</p></div>'+
+      '</div></section>'+
+
       relatedCarousel(p.category, p.id)
     );
   }
 
   function row(k,v){ return '<tr><td>'+k+'</td><td>'+v+'</td></tr>'; }
   function reviewItem(r){
-    return '<div class="review-item"><div class="review-head"><span class="review-author">'+r.author+'</span>'+UI.starRow(r.rating,null,{noCount:true})+'<span class="review-date">'+r.date+'</span></div><p class="review-text">'+r.text+'</p></div>';
+    return '<div class="review-item"><div class="review-head"><div class="review-id"><span class="review-author">'+r.author+'</span>'+UI.starRow(r.rating,null,{noCount:true})+'</div><span class="review-date">'+r.date+'</span></div><p class="review-text">'+r.text+'</p></div>';
   }
 
   /* ---------- ABOUT ---------- */
@@ -489,7 +501,9 @@ window.OMNI_PAGES = (function(){
       '</div></div></section>'+
 
       '<section class="section on-dark"><div class="wrap">'+
-        '<div class="section-head"><div><span class="eyebrow">Вакансии</span><h2>Присоединяйтесь к команде</h2></div><a class="btn btn-line" href="#/careers">Все вакансии '+ICONS.arrow+'</a></div>'+
+        '<div class="section-head"><div><span class="eyebrow">Вакансии</span><h2>Присоединяйтесь к команде</h2>'+
+          '<p class="lead" style="margin-top:12px;">Нужны обжарщики, бариста, менеджеры по продажам и специалисты производства — команда растёт вместе с компанией.</p>'+
+        '</div><a class="btn btn-line" href="#/careers">Все вакансии '+ICONS.arrow+'</a></div>'+
       '</div></section>'
     );
   }
@@ -529,7 +543,7 @@ window.OMNI_PAGES = (function(){
       '</div></section>'+
 
       '<section class="section"><div class="wrap">'+
-        '<div class="section-head"><div><span class="eyebrow">Контроль качества</span><h2>Что мы проверяем в каждой партии</h2></div></div>'+
+        '<div class="section-head"><div><span class="eyebrow">Контроль качества</span><h2>Что мы проверяем<br>в каждой партии</h2></div></div>'+
         '<div class="grid-cards" style="grid-template-columns:repeat(4,1fr);">'+
           valueCard(ICONS.doc,'Входной контроль','Влажность, плотность и дефекты зелёного зерна перед закупкой партии.')+
           valueCard(ICONS.clock,'Профиль обжарки','Кривая нагрева и время до первого и второго крека фиксируются для каждой партии.')+
@@ -567,6 +581,7 @@ window.OMNI_PAGES = (function(){
               field('Имя','text','name','Как к вам обращаться')+
               field('Телефон','tel','phone','+7 (___) ___-__-__')+
               '<div style="grid-column:1/-1;">'+field('Сообщение','textarea','message','Ваш вопрос')+'</div>'+
+              '<div style="grid-column:1/-1;">'+consentCheckbox()+'</div>'+
               '<div style="grid-column:1/-1;"><button class="btn btn-flame" type="submit">Отправить '+ICONS.arrow+'</button></div>'+
             '</form>'+
           '</div>'+
@@ -585,13 +600,16 @@ window.OMNI_PAGES = (function(){
     if(type==='textarea') return '<div class="field"><label>'+label+'</label><textarea name="'+name+'" placeholder="'+ph+'"></textarea></div>';
     return '<div class="field"><label>'+label+'</label><input type="'+type+'" name="'+name+'" placeholder="'+ph+'"></div>';
   }
+  function consentCheckbox(){
+    return '<label class="consent-check"><input type="checkbox" name="consent" required><span>Даю согласие на обработку персональных данных</span></label>';
+  }
 
   /* ---------- NEWS ---------- */
 
   function renderNews(){
     return (
       pageHero('Блог и новости','Что происходит<br>в мире ОМНИ','Чемпионаты, интервью с командой и гиды для бариста и любителей кофе.',[{label:'Блог'}])+
-      '<section class="section"><div class="wrap"><div class="news-grid">'+D.NEWS.map(function(n){ return UI.newsCard(n); }).join('')+'</div></div></section>'
+      '<section class="section"><div class="wrap"><div class="news-grid news-grid--page">'+D.NEWS.map(function(n){ return UI.newsCard(n); }).join('')+'</div></div></section>'
     );
   }
 
@@ -652,6 +670,7 @@ window.OMNI_PAGES = (function(){
             '<form data-form="vacancy-apply" style="margin-top:14px;display:grid;gap:14px;">'+
               field('Имя','text','name','Ваше имя')+
               field('Телефон','tel','phone','+7 (___) ___-__-__')+
+              consentCheckbox()+
               '<button class="btn btn-flame btn-block" type="submit">Откликнуться '+ICONS.arrow+'</button>'+
             '</form>'+
           '</div>'+
@@ -671,22 +690,20 @@ window.OMNI_PAGES = (function(){
           valueCard(ICONS.shield,'Оборудование и сервис','Подбор, установка, гарантийное и постгарантийное обслуживание кофемашин.')+
           valueCard(ICONS.doc,'Обучение персонала','Курсы и аттестация бариста в Omni Barista School со скидкой для партнёров.')+
         '</div>'+
-        '<div class="two-col">'+
-          '<div class="prose">'+
-            '<h2>Как начать сотрудничество</h2>'+
-            '<ul>'+
-              '<li>Оставляете заявку — мы перезвоним в течение рабочего дня</li>'+
-              '<li>Подбираем купаж и формат поставки под ваш объём и меню</li>'+
-              '<li>Присылаем образцы для тестовой дегустации</li>'+
-              '<li>Заключаем договор и согласуем график регулярных поставок</li>'+
-            '</ul>'+
-            '<h2>Условия для партнёров</h2>'+
-            '<table><tr><th>Объём в месяц</th><th>Условие</th></tr>'+
-              '<tr><td>от 10 кг</td><td>Оптовая цена, доставка по Краснодару бесплатно</td></tr>'+
-              '<tr><td>от 30 кг</td><td>Индивидуальный купаж, приоритетная поддержка</td></tr>'+
-              '<tr><td>от 100 кг</td><td>Персональный менеджер, обучение бариста в подарок</td></tr>'+
-            '</table>'+
-          '</div>'+
+        '<div class="section-head"><div><span class="eyebrow">Процесс</span><h2>Как начать сотрудничество</h2></div></div>'+
+        '<div class="whs-steps">'+
+          whsStep('1','Оставляете заявку — мы перезвоним в течение рабочего дня')+
+          whsStep('2','Подбираем купаж и формат поставки под ваш объём и меню')+
+          whsStep('3','Присылаем образцы для тестовой дегустации')+
+          whsStep('4','Заключаем договор и согласуем график регулярных поставок')+
+        '</div>'+
+        '<div class="section-head" style="margin-top:56px;"><div><span class="eyebrow">Условия</span><h2>Условия для партнёров</h2></div></div>'+
+        '<div class="whs-tiers">'+
+          whsTier(ICONS.box,'от 10 кг','Оптовая цена, доставка по Краснодару бесплатно')+
+          whsTier(ICONS.star,'от 30 кг','Индивидуальный купаж, приоритетная поддержка')+
+          whsTier(ICONS.shield,'от 100 кг','Персональный менеджер, обучение бариста в подарок')+
+        '</div>'+
+        '<div class="whs-form-wrap">'+
           '<div class="summary-card" style="position:static;">'+
             '<h3>Заявка для кофеен</h3>'+
             '<form data-form="wholesale" style="display:grid;gap:14px;">'+
@@ -694,6 +711,7 @@ window.OMNI_PAGES = (function(){
               field('Контактное лицо','text','name','Имя')+
               field('Телефон','tel','phone','+7 (___) ___-__-__')+
               field('Email','email','email','you@example.com')+
+              consentCheckbox()+
               '<button class="btn btn-flame btn-block" type="submit">Отправить заявку '+ICONS.arrow+'</button>'+
             '</form>'+
           '</div>'+
@@ -701,6 +719,8 @@ window.OMNI_PAGES = (function(){
       '</div></section>'
     );
   }
+  function whsStep(n,t){ return '<div class="whs-step"><span class="n">'+n+'</span><p>'+t+'</p></div>'; }
+  function whsTier(ic,vol,t){ return '<div class="whs-tier"><div class="ico">'+ic+'</div><div class="vol">'+vol+'</div><p>'+t+'</p></div>'; }
 
   /* ---------- BUYERS INFO HUB + GENERIC PAGE ---------- */
 

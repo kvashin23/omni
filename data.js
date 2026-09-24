@@ -294,5 +294,15 @@ window.OMNI_DATA = (function(){
 
   var ORIGINS = ['Гватемала','Кения','Эфиопия','Колумбия','Купаж'];
 
-  return { CATEGORIES:CATEGORIES, PRODUCTS:PRODUCTS, PRODUCT_REVIEWS:PRODUCT_REVIEWS, NEWS:NEWS, VACANCIES:VACANCIES, ORDERS:ORDERS, MY_REVIEWS:MY_REVIEWS, PAGES:PAGES, ORIGINS:ORIGINS };
+  var BREW_METHODS = [
+    { key:'espresso', title:'Эспрессо-машина', icon:'brewEspresso',
+      text:'18 г молотого кофе тонкого помола на порцию. Экстракция 36 г эспрессо за 25–30 секунд при температуре воды 92–94°C. Профиль обжарки линейки #ЯБариста подобран специально под эспрессо-экстракцию.' },
+    { key:'turka', title:'Турка', icon:'brewTurka',
+      text:'Помол тонкий, почти как пудра. 12–15 г кофе на 150 мл холодной воды. Грейте на медленном огне и снимайте с плиты трижды в момент подъёма пенки, не доводя до кипения.' },
+    { key:'geyser', title:'Гейзерная кофеварка', icon:'brewGeyser',
+      text:'Наполните нижнюю камеру водой до клапана. Кофе среднего помола — без утрамбовки. Готовьте на среднем огне до появления кофе в верхней камере, затем сразу снимите с плиты.' }
+  ];
+  var STORAGE_TIPS = 'Храните кофе в закрытой упаковке с клапаном, вдали от света, тепла и влаги. Для сохранения аромата используйте пачку в течение 3–4 недель после вскрытия. Для длительного хранения фасовку 1 кг можно разделить на порции и заморозить — повторная заморозка размороженного кофе не рекомендуется.';
+
+  return { CATEGORIES:CATEGORIES, PRODUCTS:PRODUCTS, PRODUCT_REVIEWS:PRODUCT_REVIEWS, NEWS:NEWS, VACANCIES:VACANCIES, ORDERS:ORDERS, MY_REVIEWS:MY_REVIEWS, PAGES:PAGES, ORIGINS:ORIGINS, BREW_METHODS:BREW_METHODS, STORAGE_TIPS:STORAGE_TIPS };
 })();

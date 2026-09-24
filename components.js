@@ -27,7 +27,10 @@ window.OMNI_UI = (function(){
     circleX:'<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M9.5 9.5l5 5m0-5l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>',
     instagram:'<svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor"/></svg>',
     telegram:'<svg viewBox="0 0 24 24" fill="none"><path d="M21 4L3 11.5l6 2 2 6 3-4 4.5 3.3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>',
-    stamp:'<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M12 7v5l3.2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>'
+    stamp:'<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M12 7v5l3.2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>',
+    brewEspresso:'<svg viewBox="0 0 24 24" fill="none"><rect x="4" y="9" width="16" height="10" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 9V6a1 1 0 011-1h6a1 1 0 011 1v3" stroke="currentColor" stroke-width="1.5"/><path d="M9 19v2h6v-2" stroke="currentColor" stroke-width="1.5"/><path d="M12 12v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>',
+    brewTurka:'<svg viewBox="0 0 24 24" fill="none"><path d="M6 10h9l3.2 2v1.6L15 15.6H6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M6.5 10a3 3 0 013-3H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8 15.6V19h5v-3.4" stroke="currentColor" stroke-width="1.5"/></svg>',
+    brewGeyser:'<svg viewBox="0 0 24 24" fill="none"><path d="M8 21l1-6h6l1 6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 15l1.4-8h3.2L15 15" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 3h4l-.6 4h-2.8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>'
   };
 
   function esc(s){ return String(s==null?'':s); }
